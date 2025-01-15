@@ -4,6 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Simple Webpage</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #4CAF50;
+        }
+
+        nav {
+            margin-bottom: 40px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        section {
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            margin-bottom: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 1em;
+            color: #777;
+        }
+
+        footer p {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
 
