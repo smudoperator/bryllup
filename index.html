@@ -38,13 +38,6 @@
             margin-bottom: 40px;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
         nav button {
             font-size: 1.2em;
             color: #333;
@@ -153,10 +146,7 @@
     </header>
 
     <nav>
-        <ul>
-            <li><button onclick="showModal('home')">Home</button></li>
-            <li><button onclick="showModal('about')">About</button></li>
-        </ul>
+        <button onclick="showRandomMessage()">Click for a Surprise!</button>
     </nav>
 
     <section id="home">
@@ -178,28 +168,34 @@
     <div id="modal-overlay" class="modal-overlay">
         <div class="modal">
             <h3>Information</h3>
-            <p id="modal-text"></p>
+            <p id="modal-text">This is where the popup text will appear.</p>
             <button onclick="closeModal()">Close</button>
         </div>
     </div>
 
     <script>
-        function showModal(section) {
-            var modalText = "";
-            if (section === "home") {
-                modalText = "Det vil muligens bli ekstremt god stemning.";
-            } else if (section === "about") {
-                modalText = "Hvem vet hva som kommer til å skje?";
-            }
+        function showRandomMessage() {
+            // Define an array with three different messages
+            const messages = [
+                "Dette kan bli en av kveldene gjennom tidene.",
+                "Gøy. Masse gøy. Men akkurat hva er hemmelig.",
+                "Det kan muligens bli ekstremt god stemning.",
+                "Dette kan man være med på uten å søke støtte fra NAV.",
+                "Denne dagen kan bli like uventet som fortjent."
+            ];
 
-            // Update the modal text
-            document.getElementById("modal-text").textContent = modalText;
+            // Pick a random message from the array
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+            // Update the modal with the random message
+            document.getElementById("modal-text").textContent = randomMessage;
 
             // Show the modal
             document.getElementById("modal-overlay").style.display = "flex";
         }
 
         function closeModal() {
+            // Hide the modal
             document.getElementById("modal-overlay").style.display = "none";
         }
     </script>
