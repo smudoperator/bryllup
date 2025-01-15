@@ -40,18 +40,18 @@
 
         nav button {
             font-size: 1.2em;
-            color: #333;
-            padding: 10px;
-            border: 2px solid #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
             border-radius: 5px;
-            background-color: transparent;
+            background-color: #4CAF50; /* Green background */
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         nav button:hover {
-            background-color: #4CAF50;
-            color: #fff;
+            background-color: #45a049; /* Slightly brighter green */
+            border-color: #45a049;
         }
 
         section {
@@ -67,7 +67,7 @@
         h2 {
             font-size: 2em;
             margin-bottom: 20px;
-            color: #FFFFFF;
+            color: #000000;
         }
 
         p {
@@ -146,7 +146,7 @@
     </header>
 
     <nav>
-        <button onclick="showRandomMessage()">Click for a Surprise!</button>
+        <button onclick="showRandomMessage()">Trykk her for hint</button>
     </nav>
 
     <section id="home">
@@ -156,7 +156,6 @@
     </section>
 
     <section id="about">
-        <h2>About Section</h2>
         <p>Mer info kommer...</p>
     </section>
 
@@ -165,11 +164,10 @@
     </footer>
 
     <!-- Modal Structure -->
-    <div id="modal-overlay" class="modal-overlay">
-        <div class="modal">
-            <h3>Information</h3>
-            <p id="modal-text">This is where the popup text will appear.</p>
-            <button onclick="closeModal()">Close</button>
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()"> <!-- Prevents closing when clicking inside the modal -->
+            <p id="modal-text">Replaceable text.</p>
+            <button onclick="closeModal()">Ok?</button>
         </div>
     </div>
 
@@ -194,7 +192,7 @@
             document.getElementById("modal-overlay").style.display = "flex";
         }
 
-        function closeModal() {
+        function closeModal(event) {
             // Hide the modal
             document.getElementById("modal-overlay").style.display = "none";
         }
