@@ -18,13 +18,23 @@
             font-size: 1.2em;  /* Adjust size if needed */
             color: #333;      /* Dark gray for readability */
         }
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        /* Other basic styles for the layout */
         body {
-            font-family: 'Playfair Display', serif;  /* Default font for the rest of the body */
-            background-color: #f9f9f9;
+            font-family: 'Playfair Display', serif;
+            background-color: #000000;
             color: #333;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             text-align: center;
         }
 
@@ -32,37 +42,176 @@
             margin-bottom: 40px;
         }
 
+        h1 {
+            font-size: 3em;
+            color: #FFFFFF;
+        }
+
+        nav {
+            margin-bottom: 40px;
+        }
+
+        nav button {
+            font-size: 1.2em;
+            color: #fff;
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #4CAF50; /* Green background */
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        nav button:hover {
+            background-color: #45a049; /* Slightly brighter green */
+            border-color: #45a049;
+        }
+
+        section {
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            margin-bottom: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.5;
+        }
+
         footer {
             margin-top: 40px;
             font-size: 1em;
             color: #777;
+        }
+
+        footer p {
             padding: 10px;
             background-color: #333;
-            color: white;
+            color: #fff;
             border-radius: 5px;
-            margin-top: auto; /* Push footer to the bottom */
+            margin-top: auto;
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .modal p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .modal button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal button:hover {
+            background-color: #45a049;
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Welcome to Our Wedding Website</h1>
+        <h1>Secret Day of Fun!</h1>
     </header>
 
+    <nav>
+        <button onclick="showRandomMessage()">Trykk her for hint</button>
+    </nav>
+
     <section id="home">
-        <h2>Our Journey Together</h2>
-        <p>This is the story of how we met, fell in love, and now embark on this exciting journey together. Join us as we celebrate our big day!</p>
+        <h2>Kjære Camilla og Martin</h2>
+        <p>Dere inviteres herved til en Secret Day of Fun.</p>
+        <p>Dette vil ta sted en gang i løpet av høsten 2025.</p>
     </section>
 
-    <section id="details">
-        <h2>Wedding Details</h2>
-        <p>Our wedding will take place on [Wedding Date]. Please check back for more details!</p>
+    <section id="about">
+        <p>Mer info kommer...</p>
     </section>
 
     <footer>
         <p>&copy; 2025 Camilla & Martin. All rights reserved.</p>
     </footer>
+
+    <!-- Modal Structure -->
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()"> <!-- Prevents closing when clicking inside the modal -->
+            <p id="modal-text">Replaceable text.</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showRandomMessage() {
+            // Define an array with three different messages
+            const messages = [
+                "Dette kan bli en av kveldene gjennom tidene.",
+                "Gøy. Masse gøy. Men akkurat hva er hemmelig.",
+                "Det kan muligens bli ekstremt god stemning.",
+                "Dette kan man være med på uten å søke støtte fra NAV.",
+                "Denne dagen kan bli like uventet som fortjent.",
+                "Because You're Worth It, som Loreal sier."
+            ];
+
+            // Pick a random message from the array
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+            // Update the modal with the random message
+            document.getElementById("modal-text").textContent = randomMessage;
+
+            // Show the modal
+            document.getElementById("modal-overlay").style.display = "flex";
+        }
+
+        function closeModal(event) {
+            // Hide the modal
+            document.getElementById("modal-overlay").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
