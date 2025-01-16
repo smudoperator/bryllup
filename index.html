@@ -9,7 +9,6 @@
         /* Set Great Vibes for headers */
         h1, h2 {
             font-family: 'Great Vibes', cursive;
-            color: #4CAF50; /* Soft green for elegance */
         }
 
         /* Set Playfair Display for paragraphs */
@@ -48,25 +47,25 @@
             color: #FFFFFF;
         }
 
-        nav {
+        hint {
             margin-bottom: 40px;
         }
 
-        nav button {
+        hint button {
             font-family: 'Playfair Display', serif;
             font-size: 1.2em;
             color: #fff;
             padding: 10px 20px;
-            border: 2px solid #4CAF50;
+            border: 2px solid #bf0000;
             border-radius: 5px;
-            background-color: #4CAF50; /* Green background */
+            background-color: #bf0000; /* Red background */
             cursor: pointer;
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        nav button:hover {
-            background-color: #45a049; /* Slightly brighter green */
-            border-color: #45a049;
+        hint button:hover {
+            background-color: #9E0000;
+            border-color: #9E0000;
         }
 
         section {
@@ -139,18 +138,19 @@
         }
 
         .modal button {
+            font-family: 'Playfair Display', serif;
             font-size: 1.2em;
             padding: 10px 20px;
             border-radius: 5px;
             border: none;
-            background-color: #4CAF50;
+            background-color: #bf0000;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         .modal button:hover {
-            background-color: #45a049;
+            background-color: #9E0000;
         }
 
     </style>
@@ -158,25 +158,22 @@
 <body>
 
     <header>
-        <h1>Secret Day of Fun!</h1>
+        <h1>Secret Day of Fun</h1>
     </header>
 
     <section id="home">
         <h2>Kjære<br>Camilla og Martin</h2>
         <p>Dere inviteres herved til en Secret Day of Fun.</p>
         <p>Dette vil skje en gang i løpet av høsten 2025.</p>
-    </section>
-
-    <section id="about">
         <p>Mer info kommer...</p>
     </section>
 
-    <nav>
+    <hint>
         <button onclick="showRandomMessage()">Få et hint</button>
-    </nav>
+    </hint>
 
     <footer>
-        <p>&copy; 2025 Camilla & Martin. All rights reserved.</p>
+        <p>&copy; 2025 Secret Day of Fun. All rights reserved.</p>
     </footer>
 
     <!-- Modal Structure -->
@@ -198,7 +195,8 @@
                 "Denne dagen kan bli like uventet som fortjent.",
                 "Because You're Worth It, som Loreal sier.",
                 "Det er lov å glede seg.",
-                "Dette blir litt som en god film. Forhåpentligvis."
+                "Dette blir litt som en god film. Forhåpentligvis.",
+                "Det sies det kan aldri bli nok av slike dager."
             ];
 
             // Pick a random message from the array
