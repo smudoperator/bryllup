@@ -52,6 +52,7 @@
         }
 
         nav button {
+            font-family: 'Playfair Display', serif;
             font-size: 1.2em;
             color: #fff;
             padding: 10px 20px;
@@ -160,7 +161,7 @@
     </header>
 
     <nav>
-        <button onclick="showRandomMessage()">Trykk her for hint</button>
+        <button onclick="showRandomMessage()">Få et hint</button>
     </nav>
 
     <section id="home">
@@ -181,7 +182,7 @@
     <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
         <div class="modal" onclick="event.stopPropagation()"> <!-- Prevents closing when clicking inside the modal -->
             <p id="modal-text">Replaceable text.</p>
-            <button onclick="closeModal()">Close</button>
+            <button onclick="showRandomMessage()">Nytt tips</button>
         </div>
     </div>
 
