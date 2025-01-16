@@ -104,7 +104,6 @@
             margin-top: auto;
         }
 
-        /* Modal Styles */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -176,9 +175,8 @@
         <p>&copy; 2025 Secret Day of Fun. All rights reserved.</p>
     </footer>
 
-    <!-- Modal Structure -->
     <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()"> <!-- Prevents closing when clicking inside the modal -->
+        <div class="modal" onclick="event.stopPropagation()"> 
             <p id="modal-text">Replaceable text.</p>
             <button onclick="showRandomMessage()">Nytt tips</button>
         </div>
@@ -186,7 +184,9 @@
 
     <script>
         function showRandomMessage() {
-            // Define an array with three different messages
+
+            let lastMessage = "";
+            
             const messages = [
                 "Dette kan bli en av kveldene gjennom tidene.",
                 "Gøy. Masse gøy. Men akkurat hva er hemmelig.",
@@ -199,18 +199,19 @@
                 "Det sies det kan aldri bli nok av slike dager."
             ];
 
-            // Pick a random message from the array
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            let randomMessage;
+            do {
+                randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            } while (randomMessage === lastMessage);
+    
+            lastMessage = randomMessage;
 
-            // Update the modal with the random message
             document.getElementById("modal-text").textContent = randomMessage;
 
-            // Show the modal
             document.getElementById("modal-overlay").style.display = "flex";
         }
 
         function closeModal(event) {
-            // Hide the modal
             document.getElementById("modal-overlay").style.display = "none";
         }
     </script>
